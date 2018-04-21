@@ -13,6 +13,7 @@ before_install:
   - sudo apt-get install -q virtualbox --fix-missing
   - sudo apt-get install -y vagrant
   - sudo apt-get install -y pandoc
+  - sudo apt-get install -y acl
   - gem install asciidoctor
 
 script:
