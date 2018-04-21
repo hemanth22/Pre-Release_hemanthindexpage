@@ -31,11 +31,13 @@ script:
  - ls -la
  - rm -rf Development_hemanthindexpage
  - echo "Listing Output after above script"
+ - ls -la
 
 after_success:
 
  - ./push.sh 2>&1> pushlogs
  - cat pushlogs
+ - ls -la
 
 notifications:
   slack:
