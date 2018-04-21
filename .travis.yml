@@ -1,0 +1,35 @@
+sudo: required
+language: bash
+
+before_install:
+  - sudo apt-get -y install gcc make linux-headers-$(uname -r) dkms
+  - wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+  - wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+  - sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" >> /etc/apt/sources.list'
+  - sudo apt-get -y update
+  - sudo apt-get install -y git
+  - sudo apt-get install -y virtualbox-4.3
+  - VBoxManage -v
+  - sudo apt-get install -q virtualbox --fix-missing
+  - sudo apt-get install -y vagrant
+  - sudo apt-get install -y pandoc
+  - gem install asciidoctor
+
+script:
+
+  - git clone https://github.com/hemanth22/Development_hemanthindexpage.git
+  - git clone https://github.com/hemanth22/Pre-Release_hemanthindexpage.git
+  - pwd
+ - ls -la
+ - getfacl .
+ - cd Development_hemanthindexpage
+ - rm -rf .git
+ - cp -rf . ../Pre-Release_hemanthindexpage
+
+after_success:
+ - push.sh
+
+notifications:
+  slack:
+     rooms:
+         - nothingorganization:GN1JzklSpbMyfZVWcS05U6a0#general
