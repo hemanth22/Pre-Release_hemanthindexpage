@@ -28,7 +28,7 @@ script:
  - cp -rf . ../Pre-Release_hemanthindexpage
 
 after_success:
- - push.sh
+ - sh push.sh
 
 notifications:
   slack:
