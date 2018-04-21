@@ -26,9 +26,10 @@ script:
  - cd Development_hemanthindexpage
  - rm -rf .git
  - cp -rf . ../Pre-Release_hemanthindexpage
+ - cd Pre-Release_hemanthindexpage
 
 after_success:
- - sh push.sh
+ - ./push.sh 2>&1> logs
 
 notifications:
   slack:
