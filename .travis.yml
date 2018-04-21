@@ -24,12 +24,17 @@ script:
  - ls -la
  - getfacl .
  - cd Development_hemanthindexpage
- - rm -rf .git
- - cp -rf . ../Pre-Release_hemanthindexpage
- - cd Pre-Release_hemanthindexpage
+ - rm -rf .git 2>&1 gitlogs
+ - cat gitlogs
+ - cd ..
+ - cp -rf Development_hemanthindexpage/* .
+ - rm -rf Development_hemanthindexpage
+ - echo "Listing Output after above script"
 
 after_success:
- - ./push.sh 2>&1> logs
+
+ - ./push.sh 2>&1> pushlogs
+ - cat pushlogs
 
 notifications:
   slack:
