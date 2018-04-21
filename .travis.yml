@@ -17,9 +17,9 @@ before_install:
 
 script:
 
-  - git clone https://github.com/hemanth22/Development_hemanthindexpage.git
-  - git clone https://github.com/hemanth22/Pre-Release_hemanthindexpage.git
-  - pwd
+ - git clone https://github.com/hemanth22/Development_hemanthindexpage.git
+ - git clone https://github.com/hemanth22/Pre-Release_hemanthindexpage.git
+ - pwd
  - ls -la
  - getfacl .
  - cd Development_hemanthindexpage
@@ -32,4 +32,4 @@ after_success:
 notifications:
   slack:
      rooms:
-         - nothingorganization:GN1JzklSpbMyfZVWcS05U6a0#general
+        - nothingorganization:GN1JzklSpbMyfZVWcS05U6a0#general
